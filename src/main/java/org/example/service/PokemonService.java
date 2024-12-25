@@ -41,10 +41,7 @@ public class PokemonService {
     }
 
 
-    //Salva os 3 Pokémon escolhidos pelo usuário.
-    public List<PokemonModel> saveChosenPokemon(List<PokemonModel> chosenPokemon) {
-        return pokemonRepository.saveAll(chosenPokemon);
-    }
+
 
 
     //Mapeia os detalhes do Pokémon para o modelo Pokémon.

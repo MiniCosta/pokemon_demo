@@ -2,6 +2,7 @@ package org.example.controller;
 
 import org.example.model.PokemonModel;
 import org.example.repository.PokemonRepository;
+import org.example.repository.UserRepository;
 import org.example.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/pokemon")
+@RequestMapping("/pokemon")
 public class PokemonController {
 
     @Autowired
@@ -19,27 +20,27 @@ public class PokemonController {
     @Autowired
     private PokemonRepository pokemonRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     //Endpoint para obter 5 Pokémon aleatórios.
     @GetMapping("/random")                     // GET http://localhost:8080/api/pokemon/random
     public List<PokemonModel> getFiveRandomPokemon() {
-        return pokemonService.getFiveRandomPokemon();
-    }
 
+        return pokemonService.getFiveRandomPokemon(); // O metódo está em PokemonService
+    }
 
     //Endpoint para salvar 3 Pokémon escolhidos pelo usuário.
     @PostMapping("/choose")
-    public List<PokemonModel> saveChosenPokemon(@RequestBody List<PokemonModel> chosenPokemon) {
-        if (chosenPokemon.size() != 3) {
-            throw new IllegalArgumentException("Você deve escolher exatamente 3 Pokémon.");
-        }
-        return pokemonService.saveChosenPokemon(chosenPokemon);
+    //Salva os 3 Pokémon escolhidos pelo usuário.
+    public List<PokemonModel> saveChosenPokemon(List<PokemonModel> chosenPokemon) {
+        return pokemonRepository.saveAll(chosenPokemon);
     }
 
     /**
      * CRUD
      */
-
 
     //GET - Obter todos os Pokémon
     @GetMapping
@@ -51,6 +52,7 @@ public class PokemonController {
     //GET - Obter um Pokémon pelo ID
     @GetMapping("/{id}")
     public Optional<PokemonModel> getPokemonById(@PathVariable String id) {
+
         return pokemonRepository.findById(id);
     }
 

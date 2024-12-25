@@ -10,7 +10,7 @@ import lombok.ToString;
 
 public class PokemonModel {
     @Id
-    @Column(name="id")
+    @Column(name="id", unique=true, nullable=false)
     private int pokemonId;
 
     private String name;
