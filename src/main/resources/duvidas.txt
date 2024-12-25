@@ -1,0 +1,3 @@
+yml vs properties
+esquema do banco de dados
+tabela de pokemons

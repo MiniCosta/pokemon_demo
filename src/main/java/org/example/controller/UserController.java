@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserRepository userRepository;
 
-    @PostMapping("/")                 // Utilizaremos o "/" após o "/users" para nossas requisições
+    @PostMapping("/")            //usar /add?   // Utilizaremos o "/" após o "/users" para nossas requisições
     // http://localhost:8090/users/
     public ResponseEntity create(@RequestBody UserModel userModel) {
         var user = this.userRepository.findByUsername(userModel.getUsername());

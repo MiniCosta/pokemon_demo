@@ -16,6 +16,15 @@ public class PokemonDetails {
     @JsonProperty("stats")
     public List<StatWrapper> stats; // Lista de estatísticas do Pokémon
 
+    @JsonProperty("sprites")
+    public Sprites sprites; // Imagem frontal do Pokémon
+
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Sprites {
+        @JsonProperty("front_default")
+        public String frontDefault; // URL da imagem
+    }
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     public static class TypeWrapper {
         public Type type;

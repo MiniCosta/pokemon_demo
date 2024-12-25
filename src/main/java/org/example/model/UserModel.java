@@ -13,10 +13,8 @@ package org.example.model;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
-
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
-
 import lombok.Data;
 
 @Data                                                   // Recurso do Lombok que auxilia com Getters e Setters

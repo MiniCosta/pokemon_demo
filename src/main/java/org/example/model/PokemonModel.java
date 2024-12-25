@@ -1,24 +1,19 @@
 package org.example.model;
 
 import jakarta.persistence.*;
+import lombok.Data;
 import lombok.ToString;
-import java.util.UUID;
 
 @Entity
 @Table
 @ToString
+
 public class PokemonModel {
     @Id
     @Column(name="id")
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-
-    @Column(name="pokemonId")
     private int pokemonId;
 
     private String name;
-
-    private String description;
 
     private String type;
 
@@ -26,13 +21,7 @@ public class PokemonModel {
 
     private int attack;
 
-    public UUID getId() {
-        return id;
-    }
-
-    public void setId(UUID id) {
-        this.id = id;
-    }
+    private String sprite;
 
     public int getPokemonId() {
         return pokemonId;
@@ -48,14 +37,6 @@ public class PokemonModel {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getType() {
@@ -81,7 +62,12 @@ public class PokemonModel {
     public void setAttack(int attack) {
         this.attack = attack;
     }
-//    @ManyToOne
-//    @JoinColumn(name="id_usuario")
-//    private Usuario usuario;
+
+    public String getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(String sprite) {
+        this.sprite = sprite;
+    }
 }
