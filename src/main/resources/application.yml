@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: pokemondemo
+  datasource:
+    url: jdbc:postgresql://localhost:5432/colecionador_pokemon
+    username: postgres
+    password: 123
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
