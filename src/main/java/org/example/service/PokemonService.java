@@ -15,7 +15,7 @@ import java.util.Random;
 public class PokemonService {
 
     private static final String BASE_URL = "https://pokeapi.co/api/v2/pokemon/";
-    private static final int MAX_POKEMON_ID = 100; // Limite do ID de Pokémon na API
+    private static final int MAX_POKEMON_ID = 1025; // Limite do ID de Pokémon na API
 
     @Autowired
     private PokemonRepository pokemonRepository;
@@ -39,10 +39,6 @@ public class PokemonService {
         }
         return randomPokemonList;
     }
-
-
-
-
 
     //Mapeia os detalhes do Pokémon para o modelo Pokémon.
     private PokemonModel mapDetailsToPokemon(PokemonDetails details) {

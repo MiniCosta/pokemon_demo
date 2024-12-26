@@ -1,7 +1,6 @@
 package org.example.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
 import lombok.ToString;
 
 @Entity
@@ -9,8 +8,9 @@ import lombok.ToString;
 @ToString
 
 public class PokemonModel {
+
     @Id
-    @Column(name="id", unique=true, nullable=false)
+    @Column(name="pokemonId", unique=true, nullable=false)
     private int pokemonId;
 
     private String name;

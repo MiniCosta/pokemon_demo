@@ -45,40 +45,17 @@ public class UserModel {
     private LocalDateTime createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "pokemon1_id", referencedColumnName = "id")
+    @JoinColumn(name = "pokemon1_id", referencedColumnName = "pokemonId")
     private PokemonModel pokemon1; // Primeiro Pokémon escolhido
 
     @ManyToOne
-    @JoinColumn(name = "pokemon2_id", referencedColumnName = "id")
+    @JoinColumn(name = "pokemon2_id", referencedColumnName = "pokemonId")
     private PokemonModel pokemon2; // Segundo Pokémon escolhido
 
     @ManyToOne
-    @JoinColumn(name = "pokemon3_id", referencedColumnName = "id")
+    @JoinColumn(name = "pokemon3_id", referencedColumnName = "pokemonId")
     private PokemonModel pokemon3; // Terceiro Pokémon escolhido
 
-    public PokemonModel getPokemon2() {
-        return pokemon2;
-    }
-
-    public void setPokemon2(PokemonModel pokemon2) {
-        this.pokemon2 = pokemon2;
-    }
-
-    public PokemonModel getPokemon1() {
-        return pokemon1;
-    }
-
-    public void setPokemon1(PokemonModel pokemon1) {
-        this.pokemon1 = pokemon1;
-    }
-
-    public PokemonModel getPokemon3() {
-        return pokemon3;
-    }
-
-    public void setPokemon3(PokemonModel pokemon3) {
-        this.pokemon3 = pokemon3;
-    }
 
     public UUID getId() {
         return id;
@@ -118,5 +95,28 @@ public class UserModel {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public PokemonModel getPokemon1() {
+        return pokemon1;
+    }
+
+    public void setPokemon1(PokemonModel pokemon1) {
+        this.pokemon1 = pokemon1;
+    }
+    public PokemonModel getPokemon2() {
+        return pokemon2;
+    }
+
+    public void setPokemon2(PokemonModel pokemon2) {
+        this.pokemon2 = pokemon2;
+    }
+
+    public PokemonModel getPokemon3() {
+        return pokemon3;
+    }
+
+    public void setPokemon3(PokemonModel pokemon3) {
+        this.pokemon3 = pokemon3;
     }
 }

@@ -1,5 +1,8 @@
-
+como a include padroniza os codigos
+acertar com o grupo as versões das dependencias e do java
 yml vs properties
 esquema do banco de dados
 tabela de pokemons
 sprites
+database config (hikari)
+como integrar com o frontend

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
@@ -24,8 +23,8 @@ public class UserController {
     @Autowired
     private PokemonRepository pokemonRepository;
 
-    @PostMapping("/")            //usar /add?   // Utilizaremos o "/" após o "/users" para nossas requisições
-    // http://localhost:8090/users/
+    @PostMapping("/")               // Utilizaremos o "/" após o "/users" para nossas requisições
+    //http://localhost:8090/users/
     public ResponseEntity create(@RequestBody UserModel userModel) {
         var user = this.userRepository.findByUsername(userModel.getUsername());
 
@@ -42,8 +41,8 @@ public class UserController {
         // (id, username, nome, senha criptografada, data e hora de criação)
     }
 
-    @PostMapping("/choose")
-    public UserModel saveChosenPokemon(@RequestParam String userId, @RequestBody List<String> chosenPokemonIds) {
+    @PostMapping("/choose") //Adiciona entre 1 e 3 pokemons no tabela users
+    public UserModel saveChosenPokemon(@RequestParam String userId, @RequestBody List<String> chosenPokemonIds) { //Requer como parametros o Id do user e no body uma lista com os Ids dos Pokemon
         if (chosenPokemonIds.size() > 3) {
             throw new IllegalArgumentException("Você pode escolher no máximo 3 Pokémon.");
         }

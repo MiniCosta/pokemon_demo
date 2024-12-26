@@ -2,7 +2,6 @@ package org.example.controller;
 
 import org.example.model.PokemonModel;
 import org.example.repository.PokemonRepository;
-import org.example.repository.UserRepository;
 import org.example.service.PokemonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,22 +19,11 @@ public class PokemonController {
     @Autowired
     private PokemonRepository pokemonRepository;
 
-    @Autowired
-    private UserRepository userRepository;
-
-
-    //Endpoint para obter 5 Pokémon aleatórios.
-    @GetMapping("/random")                     // GET http://localhost:8080/api/pokemon/random
+    //Endpoint para obter 5 Pokémon aleatórios
+    @GetMapping("/random")                           //GET http://localhost:8080/pokemon/random
     public List<PokemonModel> getFiveRandomPokemon() {
 
         return pokemonService.getFiveRandomPokemon(); // O metódo está em PokemonService
-    }
-
-    //Endpoint para salvar 3 Pokémon escolhidos pelo usuário.
-    @PostMapping("/choose")
-    //Salva os 3 Pokémon escolhidos pelo usuário.
-    public List<PokemonModel> saveChosenPokemon(List<PokemonModel> chosenPokemon) {
-        return pokemonRepository.saveAll(chosenPokemon);
     }
 
     /**
@@ -57,10 +45,10 @@ public class PokemonController {
     }
 
 
-    //POST - Criar um novo Pokémon
+    //POST - Criar um ou mais Pokémon
     @PostMapping
-    public PokemonModel createPokemon(@RequestBody PokemonModel pokemon) {
-        return pokemonRepository.save(pokemon);
+    public List<PokemonModel> saveChosenPokemon(@RequestBody List<PokemonModel> chosenPokemon) {
+        return pokemonRepository.saveAll(chosenPokemon);
     }
 
 
